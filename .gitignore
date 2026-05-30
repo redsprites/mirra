@@ -1,0 +1,34 @@
+# Virtual environment
+venv/
+env/
+ENV/
+
+# Environment variables
+.env
+
+# Python cache
+__pycache__/
+*.py[cod]
+*$py.class
+*.so
+
+# Downloaded videos
+saved_videos/
+my_videos/
+
+# Instagram session files
+session-*
+
+# macOS
+.DS_Store
+
+# IDE
+.vscode/
+.idea/
+*.swp
+*.swo
+
+# Runtime
+scraper_output.log
+web/data.json
+

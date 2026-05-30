@@ -1,0 +1,133 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Mirra — Your saved videos, reflected</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Instrument+Serif:ital@0;1&family=DM+Sans:ital,opsz,wght@0,9..40,400;0,9..40,500;0,9..40,600;1,9..40,400&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="styles.css" />
+</head>
+<body>
+  <div class="grain"></div>
+
+  <!-- LOGIN -->
+  <section id="view-login" class="view active">
+    <div class="login-wrap">
+      <p class="eyebrow">Mirra</p>
+      <h1>Know yourself from what you save</h1>
+      <p class="subtitle">Connect Instagram. We analyze your saved videos and build a private mirror of your interests, values, and patterns.</p>
+      <div class="login-card panel">
+        <div class="ig-badge">📸 Instagram</div>
+        <label for="username">Username</label>
+        <input id="username" type="text" placeholder="your_username" value="" />
+        <button id="btn-login" class="btn primary">Connect & analyze saves</button>
+        <p class="fine-print">MVP mock — uses your local saved_videos data. Real OAuth coming later.</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- PROCESSING -->
+  <section id="view-processing" class="view">
+    <div class="processing-wrap">
+      <p class="eyebrow">Analyzing</p>
+      <h1>Building your Save Profile</h1>
+      <p class="subtitle" id="processing-label">Connecting…</p>
+      <div class="progress-track"><div class="progress-fill" id="progress-fill"></div></div>
+      <p class="progress-pct" id="progress-pct">0%</p>
+      <ul class="step-list" id="step-list">
+        <li data-step="connect">Connect to Instagram</li>
+        <li data-step="fetch">Scan saved posts</li>
+        <li data-step="transcribe">Process transcripts</li>
+        <li data-step="analyze">Generate insights</li>
+      </ul>
+    </div>
+  </section>
+
+  <!-- REPORT -->
+  <section id="view-report" class="view">
+    <header class="hero">
+      <div class="hero-top">
+        <p class="eyebrow">Mirra · Your report</p>
+        <button id="btn-chat-toggle" class="btn ghost">Chat with your saves</button>
+      </div>
+      <h1>What your saved videos say about you</h1>
+      <p class="subtitle" id="subtitle">Loading…</p>
+
+      <!-- Personality Hero Card -->
+      <div class="personality-card" id="personality-card"></div>
+
+      <div class="stats" id="stats"></div>
+    </header>
+
+    <main class="container">
+      <section class="panel">
+        <h2>Your Save Themes</h2>
+        <p class="section-desc">Where your attention goes when nobody's watching.</p>
+        <div class="theme-bars" id="themes"></div>
+      </section>
+
+      <section class="panel insights-panel">
+        <h2>Key Insights</h2>
+        <p class="section-desc">Patterns across your private curriculum.</p>
+        <div class="insights-grid" id="insights"></div>
+      </section>
+
+      <!-- Quote Wall -->
+      <section class="panel quote-wall-panel">
+        <h2>From Your Saves</h2>
+        <p class="section-desc">Words you chose to keep.</p>
+        <div class="quote-wall" id="quote-wall"></div>
+      </section>
+
+      <section class="two-col">
+        <div class="panel">
+          <h2>Featured Saves</h2>
+          <div class="card-list" id="featured"></div>
+        </div>
+        <div class="panel">
+          <h2>Recent Saves</h2>
+          <div class="card-list" id="recent"></div>
+        </div>
+      </section>
+
+      <section class="panel">
+        <div class="panel-header">
+          <div>
+            <h2>All Saves</h2>
+            <p class="section-desc">Search and filter your library.</p>
+          </div>
+          <input type="search" id="search" placeholder="Search captions & transcripts…" />
+        </div>
+        <div class="filters" id="filters"></div>
+        <div class="card-list compact" id="all-saves"></div>
+      </section>
+    </main>
+
+    <aside id="chat-panel" class="chat-panel">
+      <div class="chat-header">
+        <div>
+          <strong>Ask Mirra</strong>
+          <span>Powered by Kiro · knows your save profile</span>
+        </div>
+        <button id="btn-chat-close" class="btn icon" aria-label="Close">×</button>
+      </div>
+      <div class="chat-messages" id="chat-messages"></div>
+      <div class="chat-prompts" id="chat-prompts">
+        <button class="prompt-chip">What am I avoiding?</button>
+        <button class="prompt-chip">What's the tension in my saves?</button>
+        <button class="prompt-chip">What should I do this week?</button>
+        <button class="prompt-chip">What patterns repeat?</button>
+      </div>
+      <form id="chat-form" class="chat-form">
+        <input id="chat-input" type="text" placeholder="What does my save history say about me?" autocomplete="off" />
+        <button type="submit" class="btn primary">Send</button>
+      </form>
+    </aside>
+    <div id="chat-backdrop" class="chat-backdrop"></div>
+  </section>
+
+  <script src="app.js"></script>
+</body>
+</html>
